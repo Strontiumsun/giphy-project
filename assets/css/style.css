@@ -1,0 +1,39 @@
+body{
+    background-color: #CCCCFF;
+}
+
+#custom-header {
+    margin-bottom: 15px;
+    text-align: center;
+    background-color:#FF9999;
+    font-size: 45px;
+    color: #fff;
+    padding: 10px;
+
+}
+#custom-btn {
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+#move-over{
+    position: relative;
+    width: 300px;
+    left: 115px;
+    margin: 15px;
+    padding: 10px;
+    background-color:#fff;
+}
+#custom-card{
+    padding: 10px;
+    background-color: #FF9999;
+}
+#add-gif{
+    float: right;
+    margin-top: 5px;
+}
+#custom-footer{
+    padding: 10px;
+    background-color: #FF9999;
+    text-align: center;
+}
+

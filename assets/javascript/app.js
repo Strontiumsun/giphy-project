@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // just to start off I'm going to make an array with the buttons I want on the page
-    var cartoonList = ["Adventure Time", "Steven Universe", "Spongebob", "Phineas and Ferb", "Regular Show", "The Powerpuff Girls", "Teen Titans", "Over The Garden Wall"]
+    var cartoonList = ["Adventure Time", "Steven Universe", "Spongebob", "Phineas and Ferb", "Regular Show", "The Powerpuff Girls", "Teen Titans", "Over The Garden Wall", "Gravity Falls"]
 
 
     // the following code is mostly taken from these activities we did in class:
@@ -18,7 +18,8 @@ $(document).ready(function () {
 
 
             var a = $("<button>");
-            a.addClass("cartoon");
+            a.addClass("cartoon btn btn-primary");
+            a.attr("id", "custom-btn");
             a.attr("data-name", cartoonList[i]);
             a.text(cartoonList[i]);
             $("#buttons-here").append(a);
@@ -31,14 +32,14 @@ $(document).ready(function () {
         $("#gifs-appear-here").empty();
 
         var cartoon = $(this).attr("data-name");
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + cartoon + "&api_key=SOzLKr3j1pWqwVmxwSh3BGFF8uekavtU&limit=5"
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + cartoon + "&api_key=SOzLKr3j1pWqwVmxwSh3BGFF8uekavtU&limit=10"
 
         $.ajax({
             url: queryURL,
             method: "GET",
         }).then(function (response) {
             var results = response.data;
-            console.log(response.data);
+            console.log(results);
 
             // here's where we add the gifs to their corresponding div in the html
             for (var i = 0; i < results.length; i++) {
@@ -49,7 +50,12 @@ $(document).ready(function () {
                 var p = $("<p>").text("Rating: " + rating);
 
                 var cartoonImage = $("<img>");
-                cartoonImage.attr("src", results[i].images.fixed_height.url);
+                cartoonImage.attr("data-still", results[i].images.fixed_height_still.url);
+                cartoonImage.attr("data-animate", results[i].images.fixed_height.url);
+                cartoonImage.attr("src", results[i].images.fixed_height_still.url);
+                cartoonImage.attr("data-state", "still");
+                cartoonImage.addClass("gif");
+
 
                 gifDiv.prepend(p);
                 gifDiv.prepend(cartoonImage);
@@ -69,10 +75,30 @@ $(document).ready(function () {
         displayButton();
     });
 
+    // now to make another on-click function
+    // this one is from week 3/day 5/15-PausingGifs and should allow us to pause gifs
+    $(document).on("click", ".gif", function () {
+        var state = $("<img>");
+        state.attr("data-state");
+        console.log("we clicked the image");
+
+        if ($(this).data().state === "still") {
+            console.log("make this animated");
+            $(this).data().state = "animated";
+            $(this).attr("src", $(this).data().animate);
+        }
+        else if ($(this).data().state === "animated") {
+            console.log("make this still")
+            $(this).data().state = "still";
+            $(this).attr("src", $(this).data().still);
+        }
+    });
+
+
     // this function listens for when I click on any of the buttons I made earlier, and displays the API Gifs
     $(document).on("click", ".cartoon", displayGifs);
-    // this calls the display button function so that it displays the initial buttons
-    displayButton();
+
+
 
 
 

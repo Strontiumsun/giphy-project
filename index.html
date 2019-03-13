@@ -6,20 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Giphy Gifs!!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Cartoon Gifs!</h1>
-    </div>
-    <div id="buttons-here"></div>
-    <form id="add-more-form">
-        <label for="gif-input">Add a gif!</label>
-        <input type="text" id="gif-input"><br>
-        <input id="add-gif" type="submit" value="Click!">
-    </form>
+        <header class="rounded" id="custom-header">
+            <h1>Cartoon Gifs!</h1>
+        </header>
 
-    <div id="gifs-appear-here"></div>
+    </div>
+    <div class="container">
+        <div id="buttons-here"></div>
+    </div>
+    <div id="move-over">
+        <div class="card" id="custom-card">
+            <form id="add-more-form">
+                <label for="gif-input">Add a gif!</label>
+                <input type="text" id="gif-input"><br>
+                <input class="btn btn-primary" id="add-gif" type="submit" value="Click!">
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="gifs-appear-here"></div>
+    </div>
+
+    <footer class="footer mt-auto py-3" id="custom-footer">
+        <div class="container"><a href="https://strontiumsun.github.io/Basic_Portfolio/index">My Portfolio</a></div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
