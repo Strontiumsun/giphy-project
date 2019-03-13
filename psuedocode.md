@@ -19,3 +19,6 @@ My API key: SOzLKr3j1pWqwVmxwSh3BGFF8uekavtU
     -- in the video, they display the rating ABOVE the gifs, so I do not think the placement is crucial or worth losing sleep over
 6. Add a form to your page takes the value from a user input box and adds it into your `topics` array. Then make a function call that takes each topic in the array remakes the buttons on the page.
     -- we did this also in week 3. This is how I made a Shrek button even though I do not like Shrek very much. It's just an easy to remember movie title.
+
+
+You need to change your `queryURL` to `"https://api.giphy.com/v1/gifs/search?q=" + cartoon + "&api_key=SOzLKr3j1pWqwVmxwSh3BGFF8uekavtU&limit=10"` otherwise the click function won't work.

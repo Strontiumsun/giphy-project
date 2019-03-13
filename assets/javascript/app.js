@@ -32,7 +32,7 @@ $(document).ready(function () {
         $("#gifs-appear-here").empty();
 
         var cartoon = $(this).attr("data-name");
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + cartoon + "&api_key=SOzLKr3j1pWqwVmxwSh3BGFF8uekavtU&limit=10"
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + cartoon + "&api_key=SOzLKr3j1pWqwVmxwSh3BGFF8uekavtU&limit=10"
 
         $.ajax({
             url: queryURL,
